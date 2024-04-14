@@ -16,14 +16,16 @@ rm -f upload.zip
 deploy=$(cat << 'EOF'
 echo Preparing deploy
 
+rm -rf /var/mmbu
 if [ ! -d /var/mmbu ]; then
     sudo mkdir -p /var/mmbu
-    sudo chown ubuntu:ubuntu /var/mmbu``
+    sudo chown ubuntu:ubuntu /var/mmbu
 fi
 
 cd /var/mmbu
 unzip -uo ~/upload.zip
 
+cd devops
 sudo chmod +x ./deploy.sh
 ./deploy.sh
 EOF
