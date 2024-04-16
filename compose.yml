@@ -2,7 +2,7 @@ version: "3"
 services:
   cms:
     build:
-      context: ./bibdig-cms
+      context: ../bibdig-cms
       dockerfile: Dockerfile
     ports:
       - "1337:1337"
@@ -18,7 +18,7 @@ services:
 
   ui:
     build:
-      context: ./bibdig-ui
+      context: ../bibdig-ui
       dockerfile: Dockerfile
     ports:
       - "80:8080"
@@ -33,4 +33,4 @@ services:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: strapi
     volumes:
-      - ./db_data:/var/lib/mysql
+      - ../db_data:/var/lib/mysql
