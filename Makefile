@@ -6,10 +6,14 @@ clean:
 	cd ${DEPLOY_DIR}
 	rm -rf bibdig-cms bibdig-ui
 
-install: install_cms install_ui run
-	git clone https://github.com/mmbugarte/bibdig-cms.git
-	git clone https://github.com/mmbugarte/bibdig-ui.git
+install: instal_cms install_ui run
 	cd ${DEPLOY_DIR}/devops
+
+install_cms:
+	git clone https://github.com/mmbugarte/bibdig-cms.git
+
+install_ui:
+	git clone https://github.com/mmbugarte/bibdig-ui.git
 
 update: update_cms update_ui run
 
