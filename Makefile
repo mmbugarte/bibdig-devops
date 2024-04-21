@@ -1,3 +1,5 @@
+.RECIPEPREFIX += 
+
 install:
   echo Deploying ...
 
