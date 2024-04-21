@@ -2,12 +2,13 @@
 SHELL := /bin/bash
 DEPLOY_DIR := /var/mmbu
 
-clean:
+goto_deploy_dir: 
 	cd ${DEPLOY_DIR}
+	
+clean: goto_deploy_dir
 	rm -rf bibdig-cms bibdig-ui
 
 install: install_cms install_ui run
-	cd ${DEPLOY_DIR}/devops
 
 install_cms:
 	git clone https://github.com/mmbugarte/bibdig-cms.git
@@ -26,5 +27,6 @@ update:ui
 	git pull
 
 run:
+	cd ${DEPLOY_DIR}/devops
 	sudo docker compose up database -d
 	sudo docker compose up
