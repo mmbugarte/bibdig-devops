@@ -3,15 +3,10 @@ echo Uploading ...
 
 server_url=ec2-18-236-78-170.us-west-2.compute.amazonaws.com
 
-rm -f upload.zip
-zip upload.zip -r db_data 
-zip -u upload.zip devops/compose.yml 
-zip -u upload.zip devops/deploy.sh 
-zip -u upload.zip bibdig-cms/.env
-
-scp -i ~/.ssh/docker-uqbar.pem upload.zip ubuntu@$server_url:.
-
-rm -f upload.zip
+rm -f secrets.zip
+zip -u secrets.zip bibdig-cms/.env
+scp -i ~/.ssh/docker-uqbar.pem secrets.zip ubuntu@$server_url:.
+rm -f secrets.zip
 
 deploy=$(cat << 'EOF'
 echo Preparing deploy
@@ -23,10 +18,11 @@ if [ ! -d /var/mmbu ]; then
 fi
 
 cd /var/mmbu
-unzip -uo ~/upload.zip
+git clone https://github.com/mmbugarte/bibdig-cms.git
 
-sudo chmod +x devops/deploy.sh
-devops/deploy.sh
+cd devops
+make run
+
 EOF
 )
 
