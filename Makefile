@@ -9,8 +9,8 @@ install:
 		cd bibdig-cms
 		git pull
 		cd ..
-		
 	fi
+		
 	unzip ~/upload.zip bibdig-cms/.env
 
 	if [ ! -d bibdig-ui ]; then
