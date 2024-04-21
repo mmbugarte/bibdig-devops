@@ -8,7 +8,7 @@ goto_deploy_dir:
 clean: goto_deploy_dir
 	rm -rf bibdig-cms bibdig-ui
 
-install: install_cms install_ui run
+install: goto_deploy_dir install_cms install_ui run
 
 install_cms:
 	git clone https://github.com/mmbugarte/bibdig-cms.git
