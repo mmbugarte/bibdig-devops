@@ -1,3 +1,6 @@
+.ONESHELL:
+SHELL := /bin/bash
+
 install:
 	echo Deploying ...
 
