@@ -1,5 +1,4 @@
 install:
-  #!/bin/sh
   echo Deploying ...
 
   rm -rf bibdig-cms bibdig-ui
