@@ -1,0 +1,6 @@
+# Development overrides
+# Locally copy or `ln -s` this file as compose.override.yml
+version: "3"
+services:
+  cms:
+    command: "npm run develop"

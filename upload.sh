@@ -7,6 +7,7 @@ rm -f upload.zip
 zip upload.zip -r db_data 
 zip -u upload.zip devops/compose.yml 
 zip -u upload.zip devops/deploy.sh 
+zip -u upload.zip bibdig-cms/.env
 
 scp -i ~/.ssh/docker-uqbar.pem upload.zip ubuntu@$server_url:.
 
@@ -31,4 +32,3 @@ EOF
 
 echo Upload completed, executing remote deploy.
 ssh -i ~/.ssh/docker-uqbar.pem ubuntu@$server_url "$deploy"
-
