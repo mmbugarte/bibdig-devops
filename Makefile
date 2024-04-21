@@ -6,28 +6,21 @@ clean:
 	cd ${DEPLOY_DIR}
 	rm -rf bibdig-cms bibdig-ui
 
-install:
-	echo Deploying ...
-	cd ${DEPLOY_DIR}
+install: install_cms install_ui run
+	git clone https://github.com/mmbugarte/bibdig-cms.git
+	git clone https://github.com/mmbugarte/bibdig-ui.git
+	cd ${DEPLOY_DIR}/devops
 
-	if [ ! -d bibdig-cms ]; then
-		git clone https://github.com/mmbugarte/bibdig-cms.git
-	else
-		cd bibdig-cms
-		git pull
-		cd ..
-	fi
+update: update_cms update_ui run
 
-	unzip ~/upload.zip bibdig-cms/.env
+update_cms:
+	cd ${DEPLOY_DIR}/bibdig-cms
+	git pull
 
-	if [ ! -d bibdig-ui ]; then
-		git clone https://github.com/mmbugarte/bibdig-ui.git
-	else
-		cd bibdig-ui
-		git pull
-		cd ..
-	fi
+update:ui
+	cd ${DEPLOY_DIR}/bibdig-ui
+	git pull
 
-	cd devops
-	sudo docker compose up 
-	echo Deploy completed
+run:
+	sudo docker compose up database -d
+	sudo docker compose up
