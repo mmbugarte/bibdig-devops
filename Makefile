@@ -1,10 +1,14 @@
 .ONESHELL:
 SHELL := /bin/bash
+DEPLOY_DIR := /var/mmbu
+
+clean:
+	cd ${DEPLOY_DIR}
+	rm -rf bibdig-cms bibdig-ui
 
 install:
 	echo Deploying ...
-
-	rm -rf bibdig-cms bibdig-ui
+	cd ${DEPLOY_DIR}
 
 	if [ ! -d bibdig-cms ]; then
 		git clone https://github.com/mmbugarte/bibdig-cms.git
