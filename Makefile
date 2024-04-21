@@ -11,9 +11,11 @@ clean: goto_deploy_dir
 install: goto_deploy_dir install_cms install_ui run
 
 install_cms:
+	cd ${DEPLOY_DIR}
 	git clone https://github.com/mmbugarte/bibdig-cms.git
 
 install_ui:
+	cd ${DEPLOY_DIR}
 	git clone https://github.com/mmbugarte/bibdig-ui.git
 
 update: update_cms update_ui run
