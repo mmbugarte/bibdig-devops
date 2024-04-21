@@ -18,7 +18,7 @@ if [ ! -d /var/mmbu ]; then
 fi
 
 cd /var/mmbu
-git clone https://github.com/mmbugarte/bibdig-cms.git
+git clone https://github.com/mmbugarte/bibdig-devops.git devops
 
 cd devops
 make run

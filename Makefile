@@ -31,5 +31,6 @@ update:ui
 
 run:
 	cd ${DEPLOY_DIR}/devops
+	sudo docker compose build
 	sudo docker compose up database -d
 	sudo docker compose up
