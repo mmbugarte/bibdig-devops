@@ -6,7 +6,7 @@ clean:
 	cd ${DEPLOY_DIR}
 	rm -rf bibdig-cms bibdig-ui
 
-install: instal_cms install_ui run
+install: install_cms install_ui run
 	cd ${DEPLOY_DIR}/devops
 
 install_cms:
