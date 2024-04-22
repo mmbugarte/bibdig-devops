@@ -25,7 +25,7 @@ update_cms:
 	cd ${DEPLOY_DIR}/bibdig-cms
 	git pull
 
-update:ui
+update_ui:
 	cd ${DEPLOY_DIR}/bibdig-ui
 	git pull
 
