@@ -3,4 +3,7 @@
 version: "3"
 services:
   cms:
-    command: "npm run develop"
+    command: ["./docker-init.sh"]
+    volumes:
+      - ../bibdig-cms:/app
+      - /app/node_modules
