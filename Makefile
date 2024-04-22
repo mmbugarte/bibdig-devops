@@ -24,13 +24,13 @@ update: update_cms update_ui run
 update_cms:
 	cd ${DEPLOY_DIR}/bibdig-cms
 	git pull
+	cd ${DEPLOY_DIR}/devops
+	sudo docker compose build cms
 
 update_ui:
 	cd ${DEPLOY_DIR}/bibdig-ui
 	git pull
 
 run:
-	cd ${DEPLOY_DIR}/devops
-	sudo docker compose build
 	sudo docker compose up database -d
-	sudo docker compose up
+	sudo docker compose up -d
