@@ -25,7 +25,7 @@ services:
     depends_on:
       - cms
     volumes:
-      - ./vue:/app
+      - ../bibdig-ui:/app
 
   database:
     image: mysql:5.7
