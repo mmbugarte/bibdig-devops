@@ -7,3 +7,6 @@ services:
     volumes:
       - ../bibdig-cms:/app
       - /app/node_modules
+  ui:
+    volumes:
+      - ../bibdig-ui:/app

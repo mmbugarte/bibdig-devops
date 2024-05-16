@@ -27,10 +27,19 @@ docker compose up
 
 # Despliegue productivo
 
+## Claves para conexión ssh
+
 Para desplegar, es necesario contar con la clave `docker-uqbar.pem`, solicitar a los administradores.
 
-Teniendo ese pre-requisito se ejecuta:
+## Preparación del servidor productivo
+
+No tengo un script para esto por ahora, hay que instalar docker, unzip y make en el servidor.
+Está probado con un servidor con 4gb de RAM y 40GB de disco.
+
+## Upload y make
+
+Teniendo esos pre-requisitos y parado en la carpeta que contenga el directorio devops se ejecuta:
 
 ```
-./upload.sh
+devops/upload.sh
 ```

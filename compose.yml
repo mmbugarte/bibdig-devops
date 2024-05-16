@@ -24,8 +24,6 @@ services:
       - "80:8080"
     depends_on:
       - cms
-    volumes:
-      - ../bibdig-ui:/app
 
   database:
     image: mysql:5.7
