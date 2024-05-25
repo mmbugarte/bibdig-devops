@@ -10,3 +10,4 @@ services:
   ui:
     volumes:
       - ../bibdig-ui:/app
+      - ~/.aws:/root/.aws
