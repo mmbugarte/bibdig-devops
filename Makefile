@@ -30,6 +30,8 @@ update_cms:
 update_ui:
 	cd ${DEPLOY_DIR}/bibdig-ui
 	git pull
+	cd ${DEPLOY_DIR}/devops
+	sudo docker compose build ui
 
 run:
 	sudo docker compose up database -d
