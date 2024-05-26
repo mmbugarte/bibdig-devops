@@ -1,3 +1,4 @@
+.PHONY: update_cms update_ui update
 .ONESHELL:
 SHELL := /bin/bash
 DEPLOY_DIR := /var/mmbu
@@ -19,20 +20,18 @@ install_secrets:
 	cd ${DEPLOY_DIR}
 	unzip -uo ~/secrets.zip
 
-update: update_cms update_ui run
+update: 
+	$(call update_service,bibdig-cms,cms)
+	$(call update_service,bibdig-ui,ui)
+	${call run}
 
-update_cms:
-	cd ${DEPLOY_DIR}/bibdig-cms
-	git pull
-	cd ${DEPLOY_DIR}/devops
-	sudo docker compose build cms
-
-update_ui:
-	cd ${DEPLOY_DIR}/bibdig-ui
-	git pull
-	cd ${DEPLOY_DIR}/devops
-	sudo docker compose build ui
+update_service:
+	cd $(DEPLOY_DIR)/bibdig-$1 && \
+	git pull && \
+	cd $(DEPLOY_DIR)/devops && \
+	sudo docker compose build $1
 
 run:
 	sudo docker compose up database -d
 	sudo docker compose up -d
+
