@@ -38,6 +38,26 @@ docker compose up
 docker compose up
 ```
 
+# Tests de integración
+
+## Obtención de secretos
+
+1. Para testear la obtención de secretos en el ambiente local se necesita:
+   Instalar AWS CLI:
+   Si no lo tienes instalado, sigue las instrucciones para tu sistema operativo desde la documentación oficial de AWS CLI.
+
+2. Configurar las credenciales de AWS:
+   Ejecuta el siguiente comando y sigue las indicaciones para ingresar tu AWS Access Key ID y AWS Secret Access Key.
+
+`aws configure`
+
+Este comando te pedirá: - AWS Access Key ID - AWS Secret Access Key - Default region name - Default output format
+
+Estas credenciales se guardarán en el archivo ~/.aws/credentials.
+
+3. Desde la consola de gestión de AWS, registrar la clave local de API key de Strapi bajo el nombre `mmbu/uiy/test`
+4. Ejecutar un contenedor de ui en modo test, mediante `dcr -e NODE_ENV=test -p 8080:8080 ui`
+
 # Despliegue productivo
 
 ## Claves para conexión ssh
