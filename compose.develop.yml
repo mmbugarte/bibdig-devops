@@ -11,3 +11,5 @@ services:
     volumes:
       - ../bibdig-ui:/app
       - ~/.aws:/root/.aws
+    environment:
+      NODE_ENV: dev
