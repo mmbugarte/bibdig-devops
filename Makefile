@@ -25,13 +25,10 @@ install_secrets:
 # 	$(call update_service,bibdig-ui,ui)
 # 	${call run}
 
-SERVICE=$(secondword $(MAKECMDGOALS))
+ui: 
+	SERVICE=ui
 
 update:
-	echo $(MAKECMDGOALS)
-	echo $(firstword $(MAKECMDGOALS))
-	echo $(secondword $(MAKECMDGOALS))
-	echo $(words $(MAKECMDGOALS))
 	cd $(DEPLOY_DIR)/bibdig-$(SERVICE) && \
 	git pull && \
 	cd $(DEPLOY_DIR)/devops && \
