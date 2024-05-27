@@ -25,8 +25,9 @@ install_secrets:
 # 	$(call update_service,bibdig-ui,ui)
 # 	${call run}
 
+SERVICE=$(secondword $(MAKECMDGOALS))
+
 update:
-	SERVICE=$(secondword $(MAKECMDGOALS))
 	cd $(DEPLOY_DIR)/bibdig-$(SERVICE) && \
 	git pull && \
 	cd $(DEPLOY_DIR)/devops && \
