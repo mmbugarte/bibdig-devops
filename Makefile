@@ -29,6 +29,7 @@ SERVICE=$(secondword $(MAKECMDGOALS))
 
 update:
 	echo $(MAKECMDGOALS)
+	$(secondword $(MAKECMDGOALS))
 	cd $(DEPLOY_DIR)/bibdig-$(SERVICE) && \
 	git pull && \
 	cd $(DEPLOY_DIR)/devops && \
