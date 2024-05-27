@@ -39,4 +39,4 @@ run:
 	sudo docker compose up -d
 
 logs:
-	docker compose logs -f $()
+	docker compose logs -f $(SERVICE)
