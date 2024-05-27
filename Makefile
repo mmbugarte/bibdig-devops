@@ -28,6 +28,7 @@ install_secrets:
 SERVICE=$(secondword $(MAKECMDGOALS))
 
 update:
+	echo $(MAKECMDGOALS)
 	cd $(DEPLOY_DIR)/bibdig-$(SERVICE) && \
 	git pull && \
 	cd $(DEPLOY_DIR)/devops && \
