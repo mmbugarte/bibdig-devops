@@ -33,6 +33,7 @@ update:
 	git pull && \
 	cd $(DEPLOY_DIR)/devops && \
 	sudo docker compose build $(SERVICE)
+	$(call run)
 
 run:
 	sudo docker compose up database -d
