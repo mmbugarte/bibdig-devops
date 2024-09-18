@@ -20,12 +20,18 @@ services:
     build:
       context: ../bibdig-ui
       dockerfile: Dockerfile
-    ports:
-      - "80:8080"
     environment:
       NODE_ENV: prod
     depends_on:
       - cms
+
+  web:
+    build:
+      context: ./web
+    ports:
+      - "80:80"
+    depends_on:
+      - ui
 
   database:
     image: mysql:5.7

@@ -1,7 +1,7 @@
 #!/bin/zsh
 echo Uploading ...
 
-server_url=ec2-52-26-46-99.us-west-2.compute.amazonaws.com
+server_url=ec2-52-43-212-35.us-west-2.compute.amazonaws.com
 
 rm -f secrets.zip
 zip -u secrets.zip bibdig-cms/.env
