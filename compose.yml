@@ -1,4 +1,5 @@
 version: "3"
+
 services:
   cms:
     build:
@@ -8,6 +9,9 @@ services:
       - "1337:1337"
     depends_on:
       - database
+    volumes:
+      - ../app:/app
+      - ../cms_uploads:/app/public/uploads
     environment:
       DATABASE_CLIENT: mysql
       DATABASE_HOST: database

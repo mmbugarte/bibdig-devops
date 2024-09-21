@@ -11,7 +11,6 @@ rm -f secrets.zip
 deploy=$(cat << 'EOF'
 echo Preparing deploy
 
-sudo rm -rf /var/mmbu
 if [ ! -d /var/mmbu ]; then
     sudo mkdir -p /var/mmbu
     sudo chown ubuntu:ubuntu /var/mmbu
